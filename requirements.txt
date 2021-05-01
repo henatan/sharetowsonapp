@@ -61,7 +61,6 @@ python2-secrets==1.0.5
 pytz==2021.1
 PyYAML==5.4.1
 requests==2.25.1
-scandir==1.10.0
 scipy==0.13.0b1
 singledispatch==3.6.1
 six==1.12.0
