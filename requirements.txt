@@ -57,7 +57,6 @@ pyparsing==2.4.7
 pyperclip==1.8.2
 python-dateutil==1.5
 python-secrets==18.11.5
-python2-secrets==1.0.5
 scipy==0.13.0b1
 singledispatch==3.6.1
 six==1.12.0
