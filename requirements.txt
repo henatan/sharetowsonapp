@@ -52,7 +52,6 @@ py==1.10.0
 py2app==0.7.3
 pycparser==2.19
 Pygments==2.5.2
-pyobjc-core==2.5.1
 pyobjc-framework-Accounts==2.5.1
 pyobjc-framework-AddressBook==2.5.1
 pyobjc-framework-AppleScriptKit==2.5.1
