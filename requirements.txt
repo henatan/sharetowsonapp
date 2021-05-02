@@ -81,7 +81,6 @@ virtualenv==20.4.4
 wcwidth==0.2.5
 Werkzeug==1.0.1
 WTForms==2.3.3
-xattr==0.6.4
 xkcdpass==1.17.6
 yamlreader==3.0.4
 zipp==1.2.0
