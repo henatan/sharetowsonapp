@@ -1,1 +1,1 @@
-web gunicorn share:app
+web gunicorn app:share
