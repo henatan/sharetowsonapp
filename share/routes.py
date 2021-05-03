@@ -9,21 +9,6 @@ from flask_login import login_user, current_user, logout_user, login_required
 db.create_all()
 
 
-# posts= [
-#     {
-#         'author' : 'Henok Assefa',
-#         'title' : 'cosc 484',
-#         'content': 'chapter one',
-#         'date_posted': 'April 11, 2021'
-#     },
-#     {
-#         'author' : 'Abel',
-#         'title' : 'cosc 484',
-#         'content': 'chapter two',
-#         'date_posted': 'April 11, 2021'
-#     }
-
-# ]
 
 @app.route('/')
 @app.route('/home')
@@ -31,9 +16,6 @@ def home():
     posts = Post.query.all()
     return render_template('home.html', posts=posts)
 
-# @app.route('/login')
-# def login():
-#     return render_template ('login.html', posts = posts)
 
 @app.route('/about')
 def about():
@@ -43,9 +25,6 @@ def about():
 def contactus():
     return render_template ('contact_us.html', title= 'About')
 
-# @app.route('/signup')
-# def signup():
-#     return render_template ('sign_up.html', posts = posts)
 
 @app.route('/upload')
 def upload():
@@ -136,3 +115,20 @@ def new_upload():
         flash('uploaded', 'success')
         return redirect(url_for('home'))
     return render_template('create_upload.html', title='New Upload', form = form)
+
+@app.route("/post/<int:post_id>")
+def post(post_id):
+    post = Post.query.get_or_404(post_id)
+    return render_template('post.html', title=post.title, post=post)
+
+
+@app.route("/post/<int:post_id>/delete", methods=['POST'])
+@login_required
+def delete_post(post_id):
+    post = Post.query.get_or_404(post_id)
+    if post.author != current_user:
+        abort(403)
+    db.session.delete(post)
+    db.session.commit()
+    flash('deleted!', 'success')
+    return redirect(url_for('home'))
